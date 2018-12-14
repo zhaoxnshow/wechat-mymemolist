@@ -1,4 +1,4 @@
-// miniprogram/pages/myMemoList.js
+// miniprogram/pages/myMemoList/myMemoList.js
 Page({
 
   /**
