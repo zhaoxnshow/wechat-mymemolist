@@ -42,7 +42,7 @@
 
   <!-- 前往My Memo List -->
   <view class="uploader">
-    <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
+    <navigator url="../myMemoList/myMemoList" open-type="navigate" class="uploader-text">
       <text>前往My Memo List</text>
     </navigator>
   </view>
