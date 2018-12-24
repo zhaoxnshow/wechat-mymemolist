@@ -1,0 +1,45 @@
+<view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class="section_title">备忘：</view>
+      <input name="input" placeholder="请输入备忘内容。" />
+    </view>
+
+    <view class="section">
+      <view class="section__title">日期</view>
+      <picker
+        mode="date"
+        value="{{date}}"
+        start="2018-09-01"
+        end="2020-09-01"
+        name="picker2"
+        bindchange="bindDateChange"
+      >
+        <view class="picker">
+          <text class='picker-date-time'>{{selectedDate}}</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="section">
+      <view class="section__title">时间:</view>
+      <picker
+        mode="time"
+        value="{{time}}"
+        start="00:00"
+        end="23:59"
+        name="picker1"
+        bindchange="bindTimeChange"
+      >
+        <view class="picker">
+          <text class='picker-date-time'>{{selectedTime}}</text>
+        </view>
+      </picker>
+    </view>
+    
+    <view class="btn-area">
+      <button form-type="submit">Submit</button>
+      <button form-type="reset">Reset</button>
+    </view>
+  </form>
+</view>

@@ -16,5 +16,39 @@
   text-align: right
 }
 .swiper-photo {
-  height: 350px;
+  height: 300px;
 }
+/* .table-no {
+  width: 10%;
+}
+.table-title {
+  width: 40%;
+}
+.table-value {
+  width: 40%;
+} */
+.width-no {
+  min-width: 9%;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid aliceblue;
+  background-color: gainsboro
+}
+.width-memo {
+  min-width: 45%;
+  display: inline-block;
+  text-align: center;
+  border-top: 1px solid aliceblue;
+  border-right: 1px solid aliceblue;
+  border-bottom: 1px solid aliceblue;
+  background-color: gainsboro
+}
+.bg-color-gainsboro {
+  background-color: gainsboro
+}
+.bg-color-azure {
+  background-color: azure
+}
+/* .mytable-view {
+  width: 100%;
+} */

@@ -1,4 +1,11 @@
 <view>
+  <template name="mytable">
+    <view class='mytable-view'>
+      <text class='width-no table-value {{idx % 2 == 0 ? "bg-color-gainsboro" : "bg-color-azure"}}'>{{idx + 1}}</text>
+      <text class='width-memo table-value {{idx % 2 == 0 ? "bg-color-gainsboro" : "bg-color-azure"}}'>{{what}}</text>
+      <text class='width-memo table-value {{idx % 2 == 0 ? "bg-color-gainsboro" : "bg-color-azure"}}'>{{when}}</text>
+    </view>
+  </template>
   <view class="icon-group">
     <icon type="search" size="25" color='#55B637' bindtap="choosePhoto"/>
     <icon type="clear" size="25" color='#55B637' bindtap="clearPhotos"/>
@@ -21,35 +28,21 @@
       </block>
     </swiper>
   </view>
-  
-  <!-- <button
-    type="default"
-    size="{{defaultSize}}"
-    loading="{{loading}}"
-    plain="{{plain}}"
-    disabled="{{disabled}}"
-    bindtap="clickMe"
-    hover-class="other-button-hover">
-    default
-  </button>
-  <button
-    type="primary"
-    size="{{primarySize}}"
-    loading="{{loading}}"
-    plain="{{plain}}"
-    disabled="{{disabled}}"
-    bindtap="choosePhoto"
-  >
-    选择照片
-  </button>
-  <button
-    type="warn"
-    size="{{warnSize}}"
-    loading="{{loading}}"
-    plain="{{plain}}"
-    disabled="{{disabled}}"
-    bindtap="warn"
-  >
-    warn
-  </button> -->
+  <view class='memo-list'>
+    <view class="icon-group">
+      <icon type="search" size="25" color='#55B637' bindtap="searchMemo"/>
+      <icon type="clear" size="25" color='#55B637' bindtap="clearMemo"/>
+      <icon type="success" size="25" color='#55B637' bindtap="addMemo"/>
+    </view>
+    <view>
+      <text class='width-no'>NO.</text>
+      <text class='width-memo'>备忘</text>
+      <text class='width-memo'>时间</text>
+    </view>
+    <view>
+      <block wx:for="{{items}}" data-key='{{index}}' wx:key='*this'>
+        <template is="mytable" data="{{...item}}" />
+      </block>
+    </view>
+  </view>
 </view>

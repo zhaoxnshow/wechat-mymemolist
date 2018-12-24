@@ -1,4 +1,7 @@
 // miniprogram/pages/myMemoList/myMemoList.js
+
+const app = getApp()
+
 Page({
 
   /**
@@ -8,9 +11,12 @@ Page({
     imgUrls: [
     ],
     defaultImgUrls: [
-      { filePath: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'},
-      { filePath: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'},
-      { filePath: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'}
+      { filePath: 
+      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'},
+      { filePath: 
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'},
+      { filePath: 
+      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'}
     ],
     indicatorDots: true,
     autoplay: true,
@@ -25,8 +31,19 @@ Page({
     warnSize: 'default',
     disabled: false,
     plain: false,
-    loading: false
-
+    loading: false,
+    index: 0,
+    items: [],
+    myOpenId: '',
+    mockdata: [{
+      idx: 0,
+      what: 'this is a template',
+      when: '2016-09-15'
+    }, {
+        idx: 1,
+        what: 'this is a template',
+        when: '2016-09-15'
+      }]
   },
 
   /**
@@ -44,7 +61,22 @@ Page({
         }
       }
     })
-  
+
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        app.globalData.openid = res.result.openid
+        _that.setData({ myOpenId: app.globalData.openid})
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '获取 openid 失败，请检查是否有部署 login 云函数',
+        })
+        console.log('[云函数] [login] 获取 openid 失败，请检查是否有部署云函数，错误信息：', err)
+      }
+    })
   },
 
   /**
@@ -118,6 +150,9 @@ Page({
               const savedFilePath = res.savedFilePath
               console.log('i=' + i + ';test2:' + savedFilePath)
               if (i == tempFilePaths.length - 1){
+                wx.showToast({
+                  title: '显示选择图片',
+                })
                 _that.onLoad()
               }
             }
@@ -137,12 +172,40 @@ Page({
             complete(res) {
               console.log('i=' + i + ';remove successful!')
               if (i == len - 1){
+                wx.showToast({
+                  title: '显示默认图片',
+                })
                 _that.onLoad()
               }
             }
           })
         }
       }
+    })
+  },
+  searchMemo: function(obj){
+    let _that = this
+    const db = wx.cloud.database()
+    db.collection('counters').where({
+      _openid: this.data.myOpenId
+    }).get({
+      success: res => {
+        console.log('[数据库] [查询记录] 成功11: ', res.data)
+        _that.setData({ items: res.data})
+        console.log('test data+++++==' + _that.data.items)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '查询记录失败'
+        })
+        console.error('[数据库] [查询记录] 失败：', err)
+      }
+    })
+  },
+  addMemo: function(obj){
+    wx.navigateTo({
+      url: '../addMemo/addMemo'
     })
   }
 })
