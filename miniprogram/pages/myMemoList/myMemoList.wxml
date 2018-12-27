@@ -21,7 +21,7 @@
     previous-margin="{{previousMargin}}px" 
     next-margin="{{nextMargin}}px"
     class='swiper-photo'>
-      <block wx:for="{{imgUrls}}" wx:key='*this'>
+      <block wx:for="{{imgUrls}}" wx:key='{{index}}'>
         <swiper-item>
           <image src="{{item.filePath}}" class="slide-image"/>
         </swiper-item>
@@ -40,7 +40,7 @@
       <text class='width-memo'>时间</text>
     </view>
     <view>
-      <block wx:for="{{items}}" data-key='{{index}}' wx:key='*this'>
+      <block wx:for="{{items}}" wx:key='*this'>
         <template is="mytable" data="{{...item}}" />
       </block>
     </view>

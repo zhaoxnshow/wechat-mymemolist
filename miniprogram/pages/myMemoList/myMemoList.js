@@ -11,11 +11,11 @@ Page({
     imgUrls: [
     ],
     defaultImgUrls: [
-      { filePath: 
+      { idx:0, filePath: 
       'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'},
-      { filePath: 
+      { idx:1, filePath: 
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'},
-      { filePath: 
+      {idx:2, filePath: 
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'}
     ],
     indicatorDots: true,
@@ -32,7 +32,6 @@ Page({
     disabled: false,
     plain: false,
     loading: false,
-    index: 0,
     items: [],
     myOpenId: '',
     mockdata: [{
