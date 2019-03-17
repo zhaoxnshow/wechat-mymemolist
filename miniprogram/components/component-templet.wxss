@@ -1,0 +1,6 @@
+/* components/component-templet.wxss */
+
+.btn-second {
+  /* margin: 0 auto; */
+  width: 40%;
+}

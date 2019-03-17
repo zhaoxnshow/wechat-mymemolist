@@ -47,4 +47,11 @@
     </navigator>
   </view>
 
+  <!-- 前往自定义组件测试页 -->
+  <view class="uploader">
+    <navigator url="../testCustomComponent/testCustomComponent" open-type="navigate" class="uploader-text">
+      <text>前往自定义组件测试页</text>
+    </navigator>
+  </view>
+
 </view>

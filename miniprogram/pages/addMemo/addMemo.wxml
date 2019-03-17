@@ -40,6 +40,23 @@
     <view class="btn-area">
       <button form-type="submit">Submit</button>
       <button form-type="reset">Reset</button>
+      <!-- <button class="weui-btn" type="warn">警告类操作 Normal</button> -->
     </view>
+    <!-- <view class="weui-cells__title">单选列表项</view>
+    <view class="weui-cells weui-cells_after-title">
+        <radio-group bindchange="radioChange">
+            <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
+                <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+
+                <view class="weui-cell__bd">{{item.name}}</view>
+                <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+                    <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+                </view>
+            </label>
+        </radio-group>
+        <view class="weui-cell weui-cell_link">
+            <view class="weui-cell__bd">添加更多</view>
+        </view>
+    </view> -->
   </form>
 </view>

@@ -1,0 +1,4 @@
+<!--miniprogram/pages/testCustomComponent/testCustomComponent.wxml-->
+<view>
+  <my-component></my-component>
+</view>

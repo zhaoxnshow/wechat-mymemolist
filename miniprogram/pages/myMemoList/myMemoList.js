@@ -12,11 +12,11 @@ Page({
     ],
     defaultImgUrls: [
       { idx:0, filePath: 
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'},
+      'https://7a78-zxntest-91c827-1257736798.tcb.qcloud.la/1.jpeg?sign=1010c9b0bcaade27493181d8aba57a4d&t=1552552836'},
       { idx:1, filePath: 
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg'},
+      'https://7a78-zxntest-91c827-1257736798.tcb.qcloud.la/2.jpeg?sign=0b25e195be29acea9985d587300d469b&t=1552552882'},
       {idx:2, filePath: 
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'}
+      'https://7a78-zxntest-91c827-1257736798.tcb.qcloud.la/3.jpg?sign=0e39570075bd3529d51fd52d82e80ec5&t=1552552952'}
     ],
     indicatorDots: true,
     autoplay: true,
@@ -50,16 +50,17 @@ Page({
    */
   onLoad: function (options) {
     let _that = this
-    wx.getSavedFileList({
-      success: (res) => {
-        if (res.fileList != null && res.fileList.length > 0) {
-          _that.setData({ imgUrls: res.fileList })
-        }
-        else{
-          _that.setData({ imgUrls: this.data.defaultImgUrls })
-        }
-      }
-    })
+    // wx.getSavedFileList({
+    //   success: (res) => {
+    //     if (res.fileList != null && res.fileList.length > 0) {
+    //       _that.setData({ imgUrls: res.fileList })
+    //     }
+    //     else{
+    //       _that.setData({ imgUrls: this.data.defaultImgUrls })
+    //     }
+    //   }
+    // })
+    this.setDisplayImg();
 
     wx.cloud.callFunction({
       name: 'login',
@@ -74,6 +75,23 @@ Page({
           title: '获取 openid 失败，请检查是否有部署 login 云函数',
         })
         console.log('[云函数] [login] 获取 openid 失败，请检查是否有部署云函数，错误信息：', err)
+      }
+    })
+  },
+
+  setDisplayImg: function(){
+    let _that = this
+    wx.getSavedFileList({
+      success: (res) => {
+        if (res.fileList != null && res.fileList.length > 0) {
+          _that.setData({ imgUrls: res.fileList })
+          console.log('=========');
+          console.log(_that.data.imgUrls);
+          console.log('=========');
+        }
+        else {
+          _that.setData({ imgUrls: this.data.defaultImgUrls })
+        }
       }
     })
   },
@@ -152,7 +170,7 @@ Page({
                 wx.showToast({
                   title: '显示选择图片',
                 })
-                _that.onLoad()
+                _that.setDisplayImg()
               }
             }
           })
@@ -174,7 +192,7 @@ Page({
                 wx.showToast({
                   title: '显示默认图片',
                 })
-                _that.onLoad()
+                _that.setDisplayImg()
               }
             }
           })
@@ -206,5 +224,11 @@ Page({
     wx.navigateTo({
       url: '../addMemo/addMemo'
     })
+  },
+  onSuccess(res) {
+    console.log(res.detail)
+  },
+  onFail(res) {
+    console.log(res)
   }
 })

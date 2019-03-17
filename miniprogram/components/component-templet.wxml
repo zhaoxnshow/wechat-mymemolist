@@ -1,0 +1,50 @@
+<view class='ct-root'>
+  <view>
+    <functional-page-navigator
+      name="loginAndGetUserInfo"
+      args="{{ args }}"
+      version="develop"
+      bind:success="loginSuccess"
+      bind:fail="loginFail"
+    >
+      <button class="login">登录到插件</button>
+    </functional-page-navigator>
+  </view>
+  <view class='btn-second'>
+    <button class="mini-btn" type="primary" size="mini" open-type='getUserInfo' bindgetuserinfo='getUserInfoSuccess'>获取用户信息</button>
+  </view>
+  <view class='btn-second'>
+    <button class="mini-btn" type="primary" size="mini" bindtap='getLocation'>获取地理位置</button>
+  </view>
+  <view class=''>
+    <image
+      style="width: 100%; height: 200px; background-color: #eeeeee;"
+      mode="widthFix"
+      src="{{avatarUrl}}">
+    </image>
+  </view>
+  <view>
+    <text>{{city}}</text>
+  </view>
+  <view>
+    <text>{{country}}</text>
+  </view>
+  <view>
+    <text>{{gender}}</text>
+  </view>
+  <view>
+    <text>{{language}}</text>
+  </view>
+  <view>
+    <text>{{nickName}}</text>
+  </view>
+  <view>
+    <text>{{province}}</text>
+  </view>
+  <!-- <view>
+    <open-data type="groupName" open-gid="xxxxxx"></open-data>
+    <open-data type="userAvatarUrl"></open-data>
+    <open-data type="userGender" lang="zh_CN"></open-data>
+  </view> -->
+</view>
+
