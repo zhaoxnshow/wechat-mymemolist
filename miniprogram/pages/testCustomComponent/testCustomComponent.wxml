@@ -1,4 +1,4 @@
 <!--miniprogram/pages/testCustomComponent/testCustomComponent.wxml-->
 <view>
-  <my-component></my-component>
+  <my-component prop-a="{{propA}}"></my-component>
 </view>
