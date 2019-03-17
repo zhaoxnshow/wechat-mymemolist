@@ -20,7 +20,10 @@
     duration="{{duration}}" 
     previous-margin="{{previousMargin}}px" 
     next-margin="{{nextMargin}}px"
-    class='swiper-photo'>
+    class='swiper-photo'
+    bindchange='myChange'
+    bindtransition='myTransition'
+    bindanimationfinish='myAnimationFinish'>
       <block wx:for="{{imgUrls}}" wx:key='{{index}}'>
         <swiper-item>
           <image src="{{item.filePath}}" class="slide-image"/>

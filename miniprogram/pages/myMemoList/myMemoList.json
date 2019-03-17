@@ -1,3 +1,5 @@
 {
-  "backgroundColorBottom": "#ffffff"
+  "backgroundColorBottom": "#ffffff",
+  "backgroundTextStyle":"dark",
+  "enablePullDownRefresh":true
 }

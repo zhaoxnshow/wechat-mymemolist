@@ -10,7 +10,6 @@
     "pages/chooseLib/chooseLib",
     "pages/addMemo/addMemo",
     "components/component-templet",
-    "pages/testCustomComponent",
     "pages/testCustomComponent/testCustomComponent"
   ],
   "window": {

@@ -128,7 +128,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
- 
+    console.log('onPullDownRefresh');
+    wx.stopPullDownRefresh();
   },
 
   /**
@@ -230,5 +231,17 @@ Page({
   },
   onFail(res) {
     console.log(res)
+  },
+  myChange(e){
+    console.log('myChange');
+    console.log(e.detail);
+  },
+  myTransition(e) {
+    console.log('myTransition');
+    console.log(e.detail);
+  },
+  myAnimationFinish(e) {
+    console.log('myAnimationFinish');
+    console.log(e.detail);
   }
 })
